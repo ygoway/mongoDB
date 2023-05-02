@@ -1,0 +1,302 @@
+Microsoft Windows [Version 10.0.19045.2846]
+(c) Корпорация Майкрософт (Microsoft Corporation). Все права защищены.
+
+C:\Users\User>mongosh
+Current Mongosh Log ID: 64518378e12fe52ac3e64104
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.8.2
+Using MongoDB:          6.0.5
+Using Mongosh:          1.8.2
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2023-05-02T17:13:01.715+03:00: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+------
+   Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+   metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+   The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+   and anyone you share the URL with. MongoDB may use this information to make product
+   improvements and to suggest MongoDB products and deployment options to you.
+
+   To enable free monitoring, run the following command: db.enableFreeMonitoring()
+   To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+------
+
+test> use hw_mongoDB
+switched to db hw_mongoDB
+hw_mongoDB> db.users_document.insertMany([
+...
+... {firstName : "Petro", lastName : "Pet", age : 26, email : "email@6", married : true},
+... {firstName : "Odin", lastName : "Gaan", age : 25, email : "email@7", married : false},
+... {firstName : "Otar", lastName : "Panchoha", age : 29, email : "email@8", married : false},
+... {firstName : "Omar", lastName : "Babrah", age : 31, email : "email@9", married : true},
+... {firstName : "Dainero", lastName : "Tant", age : 31, email : "email@10", married : true}
+... ])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("6451884ee12fe52ac3e64105"),
+    '1': ObjectId("6451884ee12fe52ac3e64106"),
+    '2': ObjectId("6451884ee12fe52ac3e64107"),
+    '3': ObjectId("6451884ee12fe52ac3e64108"),
+    '4': ObjectId("6451884ee12fe52ac3e64109"),
+    '5': ObjectId("6451884ee12fe52ac3e6410a")
+  }
+}
+hw_mongoDB> db.users_document.find()
+[
+  {
+    _id: ObjectId("645180b65913be43bc432ed9"),
+    userDocumentId: Long("1"),
+    firstName: 'Bob',
+    lastName: 'gorc',
+    email: 'email1',
+    age: 20,
+    isMarried: true,
+    _class: 'com.example.hw16.repository.documents.UserDocument'
+  },
+  {
+    _id: ObjectId("645180df5913be43bc432eda"),
+    userDocumentId: Long("2"),
+    firstName: 'Bobby',
+    lastName: 'Chop',
+    email: 'email2',
+    age: 15,
+    isMarried: false,
+    _class: 'com.example.hw16.repository.documents.UserDocument'
+  },
+  {
+    _id: ObjectId("645181025913be43bc432edb"),
+    userDocumentId: Long("3"),
+    firstName: 'John',
+    lastName: 'Brandy',
+    email: 'email3',
+    age: 17,
+    isMarried: false,
+    _class: 'com.example.hw16.repository.documents.UserDocument'
+  },
+  {
+    _id: ObjectId("6451811c5913be43bc432edc"),
+    userDocumentId: Long("4"),
+    firstName: 'John',
+    lastName: 'Kolin',
+    email: 'email4',
+    age: 22,
+    isMarried: true,
+    _class: 'com.example.hw16.repository.documents.UserDocument'
+  },
+  {
+    _id: ObjectId("645181375913be43bc432edd"),
+    userDocumentId: Long("5"),
+    firstName: 'Bob',
+    lastName: 'Danly',
+    email: 'email5',
+    age: 32,
+    isMarried: false,
+    _class: 'com.example.hw16.repository.documents.UserDocument'
+  },
+  {
+    _id: ObjectId("6451884ee12fe52ac3e64105"),
+    firstName: 'Petro',
+    lastName: 'Pet',
+    age: 26,
+    email: 'email@6',
+    married: true
+  },
+  {
+    _id: ObjectId("6451884ee12fe52ac3e64106"),
+    firstName: 'Petro',
+    lastName: 'Pet',
+    age: 26,
+    email: 'email@6',
+    married: true
+  },
+  {
+    _id: ObjectId("6451884ee12fe52ac3e64107"),
+    firstName: 'Odin',
+    lastName: 'Gaan',
+    age: 25,
+    email: 'email@7',
+    married: false
+  },
+  {
+    _id: ObjectId("6451884ee12fe52ac3e64108"),
+    firstName: 'Otar',
+    lastName: 'Panchoha',
+    age: 29,
+    email: 'email@8',
+    married: false
+  },
+  {
+    _id: ObjectId("6451884ee12fe52ac3e64109"),
+    firstName: 'Omar',
+    lastName: 'Babrah',
+    age: 31,
+    email: 'email@9',
+    married: true
+  },
+  {
+    _id: ObjectId("6451884ee12fe52ac3e6410a"),
+    firstName: 'Dainero',
+    lastName: 'Tant',
+    age: 31,
+    email: 'email@10',
+    married: true
+  }
+]
+hw_mongoDB> db.users_document.find({firstName: "Bob"})
+[
+  {
+    _id: ObjectId("645180b65913be43bc432ed9"),
+    userDocumentId: Long("1"),
+    firstName: 'Bob',
+    lastName: 'gorc',
+    email: 'email1',
+    age: 20,
+    isMarried: true,
+    _class: 'com.example.hw16.repository.documents.UserDocument'
+  },
+  {
+    _id: ObjectId("645181375913be43bc432edd"),
+    userDocumentId: Long("5"),
+    firstName: 'Bob',
+    lastName: 'Danly',
+    email: 'email5',
+    age: 32,
+    isMarried: false,
+    _class: 'com.example.hw16.repository.documents.UserDocument'
+  }
+]
+hw_mongoDB> db.users_document.find({email: "email2"})
+[
+  {
+    _id: ObjectId("645180df5913be43bc432eda"),
+    userDocumentId: Long("2"),
+    firstName: 'Bobby',
+    lastName: 'Chop',
+    email: 'email2',,
+    age: 15, false
+    isMarried: false,
+    _class: 'com.example.hw16.repository.documents.UserDocument'
+  }
+]
+hw_mongoDB> db.users_document.find({age:{$gt:18}})
+[
+  {
+    _id: ObjectId("645180b65913be43bc432ed9"),
+    userDocumentId: Long("1"),
+    firstName: 'Bob',
+    lastName: 'gorc',
+    email: 'email1',
+    age: 20,
+    isMarried: true,
+    _class: 'com.example.hw16.repository.documents.UserDocument'
+  },
+  {
+    _id: ObjectId("6451811c5913be43bc432edc"),
+    userDocumentId: Long("4"),
+    firstName: 'John',
+    lastName: 'Kolin',
+    email: 'email4',
+    age: 22,
+    isMarried: true,
+    _class: 'com.example.hw16.repository.documents.UserDocument'
+  },
+  {
+    _id: ObjectId("645181375913be43bc432edd"),
+    userDocumentId: Long("5"),
+    firstName: 'Bob',
+    lastName: 'Danly',
+    email: 'email5',
+    age: 32,
+    isMarried: false,
+    _class: 'com.example.hw16.repository.documents.UserDocument'
+  },
+  {
+    _id: ObjectId("6451884ee12fe52ac3e64105"),
+    firstName: 'Petro',
+    lastName: 'Pet',
+    age: 26,
+    email: 'email@6',
+    married: true
+  },
+  {
+    _id: ObjectId("6451884ee12fe52ac3e64106"),
+    firstName: 'Petro',
+    lastName: 'Pet',
+    age: 26,
+    email: 'email@6',
+    married: true
+  },
+  {
+    _id: ObjectId("6451884ee12fe52ac3e64107"),
+    firstName: 'Odin',
+    lastName: 'Gaan',
+    age: 25,
+    email: 'email@7',
+    married: false
+  },
+  {
+    _id: ObjectId("6451884ee12fe52ac3e64108"),
+    firstName: 'Otar',
+    lastName: 'Panchoha',
+    age: 29,
+    email: 'email@8',
+    married: false
+  },
+  {
+    _id: ObjectId("6451884ee12fe52ac3e64109"),
+    firstName: 'Omar',
+    lastName: 'Babrah',
+    age: 31,
+    email: 'email@9',
+    married: true
+  },
+  {
+    _id: ObjectId("6451884ee12fe52ac3e6410a"),
+    firstName: 'Dainero',
+    lastName: 'Tant',
+    age: 31,
+    email: 'email@10',
+    married: true
+  }
+]
+hw_mongoDB> db.users_document.find({married: true})
+[
+  {
+    _id: ObjectId("6451884ee12fe52ac3e64105"),
+    firstName: 'Petro',
+    lastName: 'Pet',
+    age: 26,
+    email: 'email@6',
+    married: true
+  },
+  {
+    _id: ObjectId("6451884ee12fe52ac3e64106"),
+    firstName: 'Petro',
+    lastName: 'Pet',
+    age: 26,
+    email: 'email@6',
+    married: true
+  },
+  {
+    _id: ObjectId("6451884ee12fe52ac3e64109"),
+    firstName: 'Omar',
+    lastName: 'Babrah',
+    age: 31,
+    email: 'email@9',
+    married: true
+  },
+  {
+    _id: ObjectId("6451884ee12fe52ac3e6410a"),
+    firstName: 'Dainero',
+    lastName: 'Tant',
+    age: 31,
+    email: 'email@10',
+    married: true
+  }
+]
